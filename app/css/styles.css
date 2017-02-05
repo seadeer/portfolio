@@ -1,0 +1,51 @@
+body{
+margin: 0;
+background: whitesmoke;
+}
+
+.container {
+    width: 60%;
+    height: auto;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#circle {
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;    
+}
+
+#circle svg{
+    margin: 0 auto;
+}
+
+@media all and (min-width: 800px) {
+    .container {
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    }
+}
+
+@media all and (max-width: 600px) {
+    .container {
+        width: 100%;
+        margin: 0;
+    }
+    #circle{
+        width: 100%;
+    }
+}
+
+.label-text{
+    font-family: 'Roboto';
+    font-size: 16px;
+    fill: black;
+}
+
+.hidden{
+    display: none;
+}
+
