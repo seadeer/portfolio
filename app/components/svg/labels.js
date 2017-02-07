@@ -22,11 +22,11 @@ export const labels = {
         text: "Tools"
     },
     name: {
-        transform: "matrix(1,0,0,1,-25.0264,13.0898)",
-        text: "Anya"
+        transform: "matrix(2.49776,0,0,2.49776,-334.536,-298.922)",
+        text: "Anya Clawson"
     },
     title: {
-        transform: "matrix(1,0,0,1,-143.694,5.96782)",
+        transform: "matrix(1,0,0,1,-168.72,19.0577)",
         text: "fullstack engineer"
     }
 

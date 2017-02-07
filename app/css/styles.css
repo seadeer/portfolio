@@ -1,17 +1,17 @@
 body{
 margin: 0;
-background: whitesmoke;
+background: #fefdff;
 }
 
 .container {
-    width: 60%;
+    width: 100%;
     height: auto;
     margin: 0 auto;
     text-align: center;
 }
 
 #circle {
-    height: 500px;
+    height: 600px;
     display: flex;
     flex-direction: column;
     justify-content: center;    
@@ -23,9 +23,8 @@ background: whitesmoke;
 
 @media all and (min-width: 800px) {
     .container {
-    width: 80%;
-    margin-left: 10%;
-    margin-right: 10%;
+    width: 100%;
+    margin: 0 auto;
     }
 }
 
@@ -39,13 +38,48 @@ background: whitesmoke;
     }
 }
 
-.label-text{
+section h4{
+    font-family: 'Cinzel Decorative';
+    font-weight: bolder;
+}
+
+section p{
+    text-align: left;
     font-family: 'Roboto';
+}
+
+.segment:hover{
+    fill: rgb(0,0,0);
+}
+
+.label-text{
+    font-family: 'Cinzel Decorative';
+    font-weight: bold;
     font-size: 16px;
     fill: black;
 }
 
+.fadein{
+    -webkit-transition: 1.2s;
+    -moz-transition: 1.2;
+    -o-transition: 1.2s;
+    transition: 1.2s;
+    opacity: 1;
+}
+
 .hidden{
-    display: none;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.info-section{
+    width: 80%;
+    margin: 0 auto;
+ }
+
+.info-section-container{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
 }
 
