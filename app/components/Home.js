@@ -1,5 +1,7 @@
 var React = require('react');
 var Circle = require('./Circle');
+var About = require('./About');
+var Projects = require('./Projects/Projects')
 require('../css/styles.css');
 
 var Home = React.createClass({
@@ -20,6 +22,8 @@ var Home = React.createClass({
        return(
        <div onMouseMove={(event) => this.HandleMouse(event)} className="container" >
             <Circle x={this.state.mouseX} y={this.state.mouseY}/>
+            <About/>
+            <Projects/>
             </div>
         )
     }
