@@ -5,7 +5,16 @@ var Icon = React.createClass({
       paths: React.PropTypes.array.isRequired
   },
   getInitialState:function(){
-      return{hidden: ""}
+      return{hidden: "hidden"}
+  },
+  shouldComponentUpdate: function(nextProps, nextState){
+      if(nextProps.hidden == ""){
+          setTimeout(function(){
+            this.setState({hidden: ""})
+        }.bind(this), this.props.wait)
+        return true;
+      }
+      return false;
   },
   render: function(){
       var pathArr = this.props.paths.map(function(path, index){
@@ -14,7 +23,7 @@ var Icon = React.createClass({
       )
       })
       return(
-          <g transform={this.props.transform}>
+          <g className={["fadein", this.state.hidden].join(' ')} transform={this.props.transform}>
             {pathArr}
           </g>
       )
