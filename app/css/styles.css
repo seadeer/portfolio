@@ -11,7 +11,6 @@ background: #fefdff;
 }
 
 #circle {
-    height: 600px;
     display: flex;
     flex-direction: column;
     justify-content: center;    
@@ -75,11 +74,53 @@ section p{
 .info-section{
     width: 80%;
     margin: 0 auto;
+    position: relative;
+    padding-bottom: 15px;
  }
 
 .info-section-container{
     display: flex;
     flex-flow: row wrap;
     justify-content: space-around;
+    align-content: space-between;
 }
 
+.info-section-container > article{
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+.github-icon:before{
+    content: "";
+    display: inline-block;
+    margin: 3px;
+    background: url('images/github-icon-24.png') no-repeat right 0 top 0;
+    background-size: cover;
+    height: 20px;
+    width: 20px;
+    vertical-align: top;
+}
+
+.actions{
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+}
+
+.mdl-chip{
+    margin-right: 3px;
+}
+
+.menu-button-right{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+
+.expand-menu{
+    text-align: right;
+}
+
+.section-text{
+    padding: 0 15px;
+}
