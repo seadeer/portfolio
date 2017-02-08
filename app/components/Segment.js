@@ -3,10 +3,10 @@ var React = require('react');
 var Segment = React.createClass({
     getInitialState: function(){
         return{
-            origFill: this.props.fill,
+            fill: this.props.fill,
             lightAmt: 0,
-            colorVelocity: randomRange(0.04, 0.13),
-            colorReach: randomRange(8, 24),
+            colorVelocity: randomRange(0.07, 0.14),
+            colorReach: randomRange(8, 15),
             origTransform: this.props.transform,
             transform: this.props.transform,
             hidden: "hidden",
@@ -16,7 +16,7 @@ var Segment = React.createClass({
     MouseOver: function(e){
       this.setState({
         hover: true,
-        origFill: "rgb(0,0,0)"
+        fill: "rgb(0,0,0)"
       });
       this.props.onMouseEnter(this);
     },
@@ -31,21 +31,26 @@ var Segment = React.createClass({
         }.bind(this), this.props.wait)
     },
     shouldComponentUpdate: function(nextProps, nextState){
-        return this.move(nextProps.x, nextProps.y) && !this.state.hover;
+      var increase = this.state.lightAmt + this.state.colorVelocity;
+      this.setState({lightAmt: increase})
+        if(this.props.id == "seg1"){
+          console.log(this.state.lightAmt, this.state.colorVelocity)
+        }
+        var changeAmt = Math.sin(this.state.lightAmt) * this.state.colorReach
+        var fill = ChangeColor(this.state.fill, changeAmt);
+        if(!this.state.hover){
+            this.setState({fill: fill})
+          }
+        return this.move(nextProps.x, nextProps.y) && !this.state.hover
     },
     show: function(){
         this.setState({hidden: ""})
     },
     move: function(x, y){
-      translate(this.state.transform, x, y);
-      return true;  
+        translate(this.state.transform, x, y);
+        return true
     },
     render: function(){
-        this.state.lightAmt += this.state.colorVelocity;
-        var changeAmt = Math.sin(this.state.lightAmt) * this.state.colorReach
-        if(!this.state.hover){
-          var fill = ChangeColor(this.state.origFill, changeAmt);
-        }
         var targetTransform = this.state.transform;
         return(
             <g
@@ -56,7 +61,7 @@ var Segment = React.createClass({
             transform={targetTransform}
             onMouseMove={(e)=>this.move(e)}
             >
-                <path d={this.props.points} fill={fill}/>
+                <path d={this.props.points} fill={this.state.fill}/>
             </g>
         )
     }
@@ -70,10 +75,13 @@ function randomRange(min, max){
 function ChangeColor(col, amt){
     var colorPattern = /\(([\d]+)\,([\d]+)\,([\d]+)\)/g
     var matches = colorPattern.exec(col)
-    amt = Math.floor(amt * 12)
+    amt = Math.floor(amt * 2)
     var c = parseInt(matches[1]) + amt
-    if(c >= 250){
-      c -= amt
+    if(c >= 100){
+      c = 100
+    }
+    if(c < 0){
+      c = 0
     }
     return("rgb("+ c + "," + c + "," + c + ")");
 }
