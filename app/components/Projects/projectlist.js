@@ -28,10 +28,17 @@ export const list=[
     technologies: ["Node.js", "Linux", "Raspbery Pi"]
   },
   {
-    title: "Find my Pad",
+    title: "Find My Pad",
     description: "A social platform for sharing apartment rental listings that utilizes Twitter.",
     link: "#",
     github: "https://github.com/seadeer/hackathon_Mar31",
     technologies: ["Django", "Python", "OAuth", "Google Maps", "Twitter"]
+  },
+  {
+    title: "Vector Fun",
+    description: "An iOS application for people learning linear algebra. Visually manipulating vectors and a matrix makes understanding eigenvectors and matrix transformations more intuitive.",
+    link: "#",
+    github: "https://github.com/seadeer/vectorFun",
+    technologies: ["Swift", "iOS"]
   }
 ]
